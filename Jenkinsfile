@@ -26,8 +26,19 @@ pipeline {
     }
 
     stage('Forecast Database') {
-      steps {
-        echo 'Forecast DB'
+      parallel {
+        stage('Forecast Database') {
+          steps {
+            echo 'Forecast DB'
+          }
+        }
+
+        stage('bad scripot') {
+          steps {
+            echo 'bad'
+          }
+        }
+
       }
     }
 
