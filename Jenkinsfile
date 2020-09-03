@@ -7,5 +7,41 @@ pipeline {
       }
     }
 
+    stage('Provision VDB') {
+      steps {
+        echo 'VDB'
+      }
+    }
+
+    stage('Mask VDB') {
+      steps {
+        echo 'mask'
+      }
+    }
+
+    stage('Package and Test DDL') {
+      steps {
+        echo 'DDL'
+      }
+    }
+
+    stage('Forecast Database') {
+      steps {
+        echo 'Forecast DB'
+      }
+    }
+
+    stage('Deploy DDL') {
+      steps {
+        echo 'Deploy DDL'
+      }
+    }
+
+    stage('Deploy Application') {
+      steps {
+        echo 'Deploy App'
+      }
+    }
+
   }
 }
