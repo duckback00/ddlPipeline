@@ -10,36 +10,47 @@ pipeline {
     stage('Provision DataSets') {
       steps {
         sh '''
-			{ set -x; } 2>/dev/null
+	{ set -x; } 2>/dev/null
 
-			PATH=/home/delphix_os/DaticalDB/repl:${PATH}
-			
-			#RESULTS=`/opt/datical/dxtoolkit2/dx_get_db_env -engine delphix-vm-n-6 --format json | jq ".results[] | select(.Database == \\"orcl\\")"`
-			#echo "Ingest Results: ${RESULTS}"
-			#if [[ "${RESULTS}" == "" ]]
-			#then
+	#PATH=/home/delphix_os/DaticalDB/repl:${PATH}
+
 	cd /home/delphix_os/API
         /home/delphix_os/API/jet_build.sh create
+	/home/delphix_os/API/jet_vcs.sh bookmark create before_test false "\"rel_1.1\"" 
 	cd - 
-			#	/opt/datical/dxtoolkit2/link_oracle_i.sh orcl Oracle_Source 172.16.129.133 orcl delphixdb delphixdb
-			#fi
  
         '''
       }
     }
 
-    stage('Mask VDB') {
+    stage('Mask Data Sets') {
       steps {
         echo 'mask'
       }
     }
 
-    stage('Package and Test DDL') {
+    stage('Create Branches') {
+      steps {
+        sh '''
+	{ set -x; } 2>/dev/null
+
+        cd /home/delphix_os/API
+        /home/delphix_os/API/jet_vcs.sh branch create rel20 latest rel20
+	/home/delphix_os/API/jet_vcs.sh branch activate default 
+        /home/delphix_os/API/jet_vcs.sh branch create rel30 latest rel30
+	/home/delphix_os/API/jet_vcs.sh branch activate default 
+	cd - 
+ 
+        '''
+      }
+    }
+
+    stage('Create Version 3.0 Branch') {
       steps {
         echo 'DDL'
       }
     }
-
+	  
     stage('Forecast Database') {
       parallel {
         stage('Forecast Database') {
