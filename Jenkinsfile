@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Host Info') {
       steps {
-        sh 'uname -a ; ls -ll /var/lib/jenkins/workspace/ddlPipeline_master'
+        sh 'uname -a ; ls -ll /home/delphix_os/API/jet*'
       }
     }
 
