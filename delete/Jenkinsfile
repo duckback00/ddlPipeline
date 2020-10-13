@@ -9,7 +9,7 @@ pipeline {
 	  cd /home/delphix_os/API
           #/home/delphix_os/API/jet_vcs.sh branch delete rel30
           #/home/delphix_os/API/jet_vcs.sh branch delete rel20
-          /home/delphix_os/API/jetstream_container_template_delete.sh dc2 delete true
+          #/home/delphix_os/API/jetstream_container_template_delete.sh dc2 delete true
           /home/delphix_os/API/jet_build.sh delete
 	  cd - 
  
