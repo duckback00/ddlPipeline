@@ -1,0 +1,19 @@
+[
+{
+  "connNo": 1,
+  "connectorName": "BittConn8a",
+  "databaseType": "MSSQL",
+  "environmentId": 14,
+  "jdbc": "jdbc:sqlserver://104.43.217.180:1433;databaseName=tablesDB;",
+  "password": "Delphix12345678",
+  "jdbcDriverId": 0,
+  "username": "delphix",
+  "profileSetName": "HIPAA",
+  "dbName": "tablesDB",
+  "schemaName": "dbo",
+  "tblName": "EMPLOYEES",
+  "condition": "id=1",
+  "verify": true,
+  "runMaskingJob": "NO"
+}
+]
