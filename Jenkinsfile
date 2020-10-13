@@ -56,8 +56,7 @@ pipeline {
         cd /home/delphix_os/API
 	sleep 2
 	/home/delphix_os/API/jet_vcs.sh bookmark create bad_data true 
-        /home/delphix_os/API/jet_vcs.sh branch create break_fix bad_data bf1 
-	/home/delphix_os/API/jet_vcs.sh branch activate default 
+	/home/delphix_os/API/jetstream_container_clone_from_bookmark.sh tpl dc bad_data dc2
 	cd - 
  
         '''
