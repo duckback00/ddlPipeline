@@ -1,7 +1,6 @@
 pipeline {
   agent any
   stages {
-
     stage('Provision DataSets') {
       steps {
         sh '''
@@ -11,7 +10,7 @@ pipeline {
 
 	cd /home/delphix_os/API
         /home/delphix_os/API/jet_build.sh create
-	/home/delphix_os/API/jet_vcs.sh bookmark create before_test false "\"rel_1.1\"" 
+	/home/delphix_os/API/jet_vcs.sh bookmark create before_test false ""rel_1.1"" 
 	cd - 
  
         '''
@@ -49,12 +48,13 @@ pipeline {
         }
 
         stage('Found Bad Data') {
-          steps {        sh '''
+          steps {
+            sh '''
 	{ set -x; } 2>/dev/null
 
         cd /home/delphix_os/API
 	sleep 2
-	/home/delphix_os/API/jet_vcs.sh bookmark create bad_data true "\"\"" 
+	/home/delphix_os/API/jet_vcs.sh bookmark create bad_data true """" 
         /home/delphix_os/API/jet_vcs.sh branch create break_fix bad_data bf1 
 	/home/delphix_os/API/jet_vcs.sh branch activate default 
 	cd - 
