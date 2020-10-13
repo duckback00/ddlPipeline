@@ -18,7 +18,9 @@ pipeline {
 			#echo "Ingest Results: ${RESULTS}"
 			#if [[ "${RESULTS}" == "" ]]
 			#then
+	cd /home/delphix_os/API
         /home/delphix_os/API/jet_build.sh create
+	cd - 
 			#	/opt/datical/dxtoolkit2/link_oracle_i.sh orcl Oracle_Source 172.16.129.133 orcl delphixdb delphixdb
 			#fi
  
