@@ -9,7 +9,7 @@ pipeline {
 
     stage('Provision DataSets') {
       steps {
-         sh '''
+        sh '''
 			{ set -x; } 2>/dev/null
 
 			PATH=/home/delphix_os/DaticalDB/repl:${PATH}
